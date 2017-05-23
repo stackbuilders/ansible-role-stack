@@ -1,2 +1,12 @@
 ---
-# tasks file for haskell-stack
+- include: archlinux.yml
+  when: ansible_distribution == "Archlinux"
+
+- include: debian.yml
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+- name: haskell-stack | Download stack
+  unarchive:
+    src: "https://www.stackage.org/stack/linux-x86_64"
+    dest: /usr/bin
+    remote_src: yes

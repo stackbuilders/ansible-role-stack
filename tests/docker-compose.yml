@@ -1,0 +1,38 @@
+---
+version: "3"
+
+services:
+  archlinux:
+    build:
+      dockerfile: archlinux.Dockerfile
+      context: dockerfiles
+    image: haskell-stack:archlinux
+    container_name: haskell_stack_archlinux
+
+  debian7:
+    build:
+      dockerfile: debian7.Dockerfile
+      context: dockerfiles
+    image: haskell-stack:debian7
+    container_name: haskell_stack_debian7
+
+  debian8:
+    build:
+      dockerfile: debian8.Dockerfile
+      context: dockerfiles
+    image: haskell-stack:debian8
+    container_name: haskell_stack_debian8
+
+  ubuntu1404:
+    build:
+      dockerfile: ubuntu1404.Dockerfile
+      context: dockerfiles
+    image: haskell-stack:ubuntu1404
+    container_name: haskell_stack_ubuntu1404
+
+  ubuntu1604:
+    build:
+      dockerfile: ubuntu1604.Dockerfile
+      context: dockerfiles
+    image: haskell-stack:ubuntu1604
+    container_name: haskell_stack_ubuntu1604

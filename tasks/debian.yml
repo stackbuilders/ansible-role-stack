@@ -1,0 +1,6 @@
+---
+- name: haskell-stack | Install dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ haskell_stack_debian_dependencies }}"

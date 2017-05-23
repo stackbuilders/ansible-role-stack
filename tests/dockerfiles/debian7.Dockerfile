@@ -1,0 +1,6 @@
+FROM debian:7
+
+RUN apt-get update && \
+    apt-get install -y python
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

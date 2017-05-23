@@ -1,2 +1,23 @@
 ---
-# vars file for haskell-stack
+haskell_stack_archlinux_dependencies:
+  - gcc
+  - git
+  - gmp
+  - gnupg
+  - libffi
+  - make
+  - ncurses
+  - xz
+  - zlib
+
+haskell_stack_debian_dependencies:
+  - g++
+  - gcc
+  - git
+  - gnupg
+  - libc6-dev
+  - libffi-dev
+  - libgmp-dev
+  - make
+  - xz-utils
+  - zlib1g-dev
