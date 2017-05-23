@@ -24,6 +24,8 @@
 
 - name: haskell-stack | Copy binary
   copy:
-    src: "{{ temp.path }}/stack-*/stack"
+    src: "{{ item }}"
     dest: "/usr/local/bin"
     remote_src: yes
+  with_fileglob:
+    - "{{ temp.path }}/stack-*/stack"
