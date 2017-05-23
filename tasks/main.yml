@@ -5,8 +5,25 @@
 - include: debian.yml
   when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 
+- name: haskell-stack | Create temp directory
+  tempfile:
+    suffix: haskell-stack
+    state: directory
+  register: temp
+
 - name: haskell-stack | Download stack
+  get_url:
+    url: "https://www.stackage.org/stack/linux-x86_64"
+    dest: "{{ temp.path }}/stack.tar.gz"
+
+- name: haskell-stack | Extract stack
   unarchive:
-    src: "https://www.stackage.org/stack/linux-x86_64"
-    dest: /usr/bin
+    src: "{{ temp.path }}/stack.tar.gz"
+    dest: "{{ temp.path }}"
+    remote_src: yes
+
+- name: haskell-stack | Copy binary
+  copy:
+    src: "{{ temp.path }}/stack-*/stack"
+    dest: "/usr/local/bin"
     remote_src: yes
