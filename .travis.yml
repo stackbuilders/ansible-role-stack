@@ -1,5 +1,10 @@
 ---
+sudo: required
+
 language: C
+
+services:
+  - docker
 
 script:
   - cd tests
