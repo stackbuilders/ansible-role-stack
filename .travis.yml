@@ -1,0 +1,7 @@
+---
+language: C
+
+script:
+  - cd tests
+  - docker-compose up -d
+  - ansible-playbook test.yml
