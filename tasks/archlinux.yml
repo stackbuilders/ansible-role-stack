@@ -1,6 +1,0 @@
----
-- name: haskell-stack | Install dependencies
-  pacman:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ haskell_stack_archlinux_dependencies }}"

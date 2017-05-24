@@ -2,13 +2,6 @@
 version: "3"
 
 services:
-  archlinux:
-    build:
-      dockerfile: archlinux.Dockerfile
-      context: dockerfiles
-    image: haskell-stack:archlinux
-    container_name: haskell_stack_archlinux
-
   debian7:
     build:
       dockerfile: debian7.Dockerfile

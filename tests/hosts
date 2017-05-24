@@ -1,10 +1,7 @@
-[archlinux]
-haskell_stack_archlinux   ansible_connection=docker
-
 [debian]
-haskell_stack_debian7     ansible_connection=docker
-haskell_stack_debian8     ansible_connection=docker
+haskell_stack_debian7 ansible_connection=docker
+haskell_stack_debian8 ansible_connection=docker
 
 [ubuntu]
-haskell_stack_ubuntu1404  ansible_connection=docker
-haskell_stack_ubuntu1604  ansible_connection=docker
+haskell_stack_ubuntu1404 ansible_connection=docker
+haskell_stack_ubuntu1604 ansible_connection=docker
