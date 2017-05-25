@@ -46,6 +46,11 @@
     path: "{{ temp.path }}"
     state: absent
 
+- name: haskell-stack | Create global directory
+  file:
+    path: "{{ ansible_user_dir }}/.stack/global-project"
+    state: directory
+
 - name: haskell-stack | Copy global stack.yaml
   template:
     src: stack.yaml.j2
