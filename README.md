@@ -15,6 +15,7 @@ good idea to mention in this section that the boto package is required.
 | Name                            | Default          | Description
 | ---                             | ---              | ---
 | `haskell_stack_bin_dir`         | `/usr/local/bin` | Path where the stack binary is going to be copied.
+| `haskell_stack_compilers`       | `[]`             | List of GHC compilers to install.
 | `haskell_stack_global_resolver` | `lts-8.15`       | Global stack resolver to be set at `~/.stack/global-project/stack.yaml` file.
 
 ## Dependencies
