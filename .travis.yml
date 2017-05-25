@@ -1,11 +1,19 @@
 ---
 language: python
 
+env:
+  matrix:
+    - ANSIBLE_VERSION: 1.9
+    - ANSIBLE_VERSION: 2.0
+    - ANSIBLE_VERSION: 2.1
+    - ANSIBLE_VERSION: 2.2
+    - ANSIBLE_VERSION: 2.3
+
 services:
   - docker
 
 install:
-  - pip install ansible
+  - pip install ansible~=$ANSIBLE_VERSION
 
 script:
   - cd tests
