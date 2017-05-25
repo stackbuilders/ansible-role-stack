@@ -55,3 +55,9 @@
   template:
     src: stack.yaml.j2
     dest: "{{ ansible_user_dir }}/.stack/global-project/stack.yaml"
+
+- name: haskell-stack | Install compilers
+  shell: "stack setup {{ item }}"
+  with_items: "{{ haskell_stack_compilers }}"
+  tags:
+    - haskell-stack-compilers

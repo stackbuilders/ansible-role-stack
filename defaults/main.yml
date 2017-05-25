@@ -1,3 +1,4 @@
 ---
 haskell_stack_bin_dir: /usr/local/bin
+haskell_stack_compilers: []
 haskell_stack_global_resolver: lts-8.15
