@@ -12,11 +12,10 @@ good idea to mention in this section that the boto package is required.
 
 ## Role Variables
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.)
-should be mentioned here as well.
+| Name                            | Default          | Description
+| ---                             | ---              | ---
+| `haskell_stack_bin_dir`         | `/usr/local/bin` | Path where the stack binary is going to be copied.
+| `haskell_stack_global_resolver` | `lts-8.15`       | Global stack resolver to be set at `~/.stack/global-project/stack.yaml` file.
 
 ## Dependencies
 
