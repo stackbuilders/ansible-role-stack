@@ -9,6 +9,5 @@ install:
 
 script:
   - cd tests
-  - docker-compose build
   - docker-compose up -d
   - ansible-playbook test.yml

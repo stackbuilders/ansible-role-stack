@@ -3,29 +3,17 @@ version: "2"
 
 services:
   debian7:
-    build:
-      dockerfile: debian7.Dockerfile
-      context: dockerfiles
-    image: haskell-stack:debian7
+    image: sestrella/ansible-testing:debian-7
     container_name: haskell_stack_debian7
 
   debian8:
-    build:
-      dockerfile: debian8.Dockerfile
-      context: dockerfiles
-    image: haskell-stack:debian8
+    image: sestrella/ansible-testing:debian-7
     container_name: haskell_stack_debian8
 
   ubuntu1404:
-    build:
-      dockerfile: ubuntu1404.Dockerfile
-      context: dockerfiles
-    image: haskell-stack:ubuntu1404
+    image: sestrella/ansible-testing:ubuntu-14.04
     container_name: haskell_stack_ubuntu1404
 
   ubuntu1604:
-    build:
-      dockerfile: ubuntu1604.Dockerfile
-      context: dockerfiles
-    image: haskell-stack:ubuntu1604
+    image: sestrella/ansible-testing:ubuntu-16.04
     container_name: haskell_stack_ubuntu1604
