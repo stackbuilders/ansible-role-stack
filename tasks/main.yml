@@ -37,7 +37,7 @@
 - name: haskell-stack | Copy binary
   copy:
     src: "{{ temp.path }}/stack"
-    dest: "/usr/local/bin"
+    dest: "{{ haskell_stack_bin_dir }}"
     mode: 0755
     remote_src: yes
 
