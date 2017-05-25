@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sestrella/haskell-stack.svg?branch=master)](https://travis-ci.org/sestrella/haskell-stack)
 
-A brief description of the role goes here.
+Ansible role to install and configure Haskell Stack.
 
 ## Requirements
 
