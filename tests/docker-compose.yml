@@ -7,7 +7,7 @@ services:
     container_name: haskell_stack_debian7
 
   debian8:
-    image: sestrella/ansible-testing:debian-7
+    image: sestrella/ansible-testing:debian-8
     container_name: haskell_stack_debian8
 
   ubuntu1404:
