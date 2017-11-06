@@ -1,19 +1,23 @@
 ---
-version: "2"
+version: '2'
 
 services:
-  debian7:
-    image: sestrella/ansible-testing:debian-7
-    container_name: haskell_stack_debian7
-
   debian8:
-    image: sestrella/ansible-testing:debian-8
+    build: ./dockerfiles/debian8
     container_name: haskell_stack_debian8
 
-  ubuntu1404:
-    image: sestrella/ansible-testing:ubuntu-14.04
-    container_name: haskell_stack_ubuntu1404
+  debian9:
+    build: ./dockerfiles/debian9
+    container_name: haskell_stack_debian9
 
-  ubuntu1604:
-    image: sestrella/ansible-testing:ubuntu-16.04
-    container_name: haskell_stack_ubuntu1604
+  ubuntu14:
+    build: ./dockerfiles/ubuntu14
+    container_name: haskell_stack_ubuntu14
+
+  ubuntu16:
+    build: ./dockerfiles/ubuntu16
+    container_name: haskell_stack_ubuntu16
+
+  centos7:
+    build: ./dockerfiles/centos7
+    container_name: haskell_stack_centos7

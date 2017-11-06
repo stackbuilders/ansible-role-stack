@@ -1,0 +1,19 @@
+---
+- name: Upgrade Stack
+  command: stack upgrade
+
+- name: Create global directory
+  file:
+    path: "{{ ansible_user_dir }}/.stack/global-project"
+    state: directory
+
+- name: Copy global stack.yaml
+  template:
+    src: stack.yaml.j2
+    dest: "{{ ansible_user_dir }}/.stack/global-project/stack.yaml"
+
+- name: Install compilers
+  shell: "stack setup {{ item }}"
+  with_items: "{{ haskell_stack_compilers }}"
+  tags:
+    - haskell-stack-compilers

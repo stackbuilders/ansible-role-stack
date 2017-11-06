@@ -1,0 +1,21 @@
+---
+- name: Install EPEL repository
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - epel-release
+
+- name: Install DNF packet manager
+  yum:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - dnf
+
+- name: Install the latest version Stack
+  dnf:
+    name: stack
+    state: latest
