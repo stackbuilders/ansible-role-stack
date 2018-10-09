@@ -1,0 +1,2 @@
+---
+haskell_stack_name: "stack-{{ haskell_stack_version }}-linux-{{ ansible_architecture }}"

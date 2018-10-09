@@ -1,28 +1,70 @@
-# Haskell Stack
+# Ansible Role: Haskell Stack
 
-[![Build Status](https://travis-ci.org/sestrella/haskell-stack.svg?branch=master)](https://travis-ci.org/sestrella/haskell-stack)
+Install Haskell Stack on Debian/Ubuntu servers.
 
-Ansible role to install and configure Haskell Stack.
+## Getting Started
+
+Add the role to your `requirements.yml` file:
+
+```yaml
+- src: https://github.com/stackbuilders/ansible-haskell-stack
+  name: haskell-stack
+```
+
+Install the dependencies:
+
+```
+$ ansible-galaxy install -r requirements.yml
+```
+
+Add the role to your playbook:
+
+```yaml
+- hosts: all
+  roles:
+    - role: haskell-stack
+      become: true
+```
 
 ## Role Variables
 
-| Name                            | Default          | Description
-| ---                             | ---              | ---
-| `haskell_stack_bin_dir`         | `/usr/local/bin` | Path where the stack binary is going to be copied.
-| `haskell_stack_compilers`       | `[]`             | List of GHC compilers to install.
-| `haskell_stack_global_resolver` | `lts-8.15`       | Global stack resolver to be set at `~/.stack/global-project/stack.yaml` file.
+This section list all variables that could be overwritten, along with their
+[default values](defaults/main.yml):
 
-## Example Playbook
+### haskell_stack_dependencies
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+Extra dependencies required by stack binary:
 
-```YAML
-- hosts: servers
-  roles:
-    - { role: username.rolename, x: 42 }
+```yaml
+haskell_stack_dependencies:
+  - g++
+  - gcc
+  - git
+  - gnupg
+  - libc6-dev
+  - libffi-dev
+  - libgmp-dev
+  - make
+  - xz-utils
+  - zlib1g-dev
+```
+
+### haskell_stack_version
+
+The stack version to be downloaded:
+
+```yaml
+haskell_stack_version: 1.7.1
+```
+
+### haskell_stack_bin_dir
+
+The target directory to copy stack binary:
+
+```yaml
+haskell_stack_bin_dir: /usr/local/bin
 ```
 
 ## License
 
-MIT
+Released under the [MIT License](LICENSE).

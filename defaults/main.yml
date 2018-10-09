@@ -1,4 +1,16 @@
 ---
+haskell_stack_dependencies:
+  - g++
+  - gcc
+  - git
+  - gnupg
+  - libc6-dev
+  - libffi-dev
+  - libgmp-dev
+  - make
+  - xz-utils
+  - zlib1g-dev
+
+haskell_stack_version: 1.7.1
+
 haskell_stack_bin_dir: /usr/local/bin
-haskell_stack_compilers: []
-haskell_stack_global_resolver: lts-8.15
