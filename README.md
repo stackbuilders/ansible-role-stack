@@ -54,7 +54,7 @@ haskell_stack_dependencies:
 The stack version to be downloaded:
 
 ```yaml
-haskell_stack_version: 1.7.1
+haskell_stack_version: 1.9.1
 ```
 
 ### haskell_stack_bin_dir

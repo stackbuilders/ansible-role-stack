@@ -10,4 +10,4 @@ def test_binary(host):
     cmd = host.run('/usr/local/bin/stack --version')
 
     assert cmd.rc == 0
-    assert '1.7.1' in cmd.stdout
+    assert '1.9.1' in cmd.stdout

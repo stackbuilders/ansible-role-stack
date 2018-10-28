@@ -11,6 +11,6 @@ haskell_stack_dependencies:
   - xz-utils
   - zlib1g-dev
 
-haskell_stack_version: 1.7.1
+haskell_stack_version: 1.9.1
 
 haskell_stack_bin_dir: /usr/local/bin
