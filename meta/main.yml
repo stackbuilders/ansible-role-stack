@@ -2,7 +2,7 @@
 galaxy_info:
   author: Sebastián Estrella
   description: Haskell Stack
-  company: Stack Builders
+  company: Stack Builders Inc.
   license: MIT
   min_ansible_version: 2.7
   platforms:
