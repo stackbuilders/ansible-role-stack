@@ -2,4 +2,11 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ansible-haskell-stack
+    - role: ansible-role-stack
+      vars:
+        haskell_stack_version: 2.1.3
+        haskell_stack_copy_bin: false
+    - role: ansible-role-stack
+      vars:
+        haskell_stack_version: 1.9.3
+        haskell_stack_copy_bin: false

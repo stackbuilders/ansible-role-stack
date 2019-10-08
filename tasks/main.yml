@@ -1,29 +1,24 @@
 ---
+- name: Update APT cache
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+
 - name: Install dependencies
   apt:
     name: "{{ haskell_stack_dependencies }}"
-    update_cache: true
+    state: present
 
-- name: Create temp directory
-  tempfile:
-    suffix: haskell-stack
-    state: directory
-  register: temp
-
-- name: Download binary
+- name: Download and extract stack
   unarchive:
     src: "https://github.com/commercialhaskell/stack/releases/download/v{{ haskell_stack_version }}/{{ haskell_stack_name }}.tar.gz"
-    dest: "{{ temp.path }}"
-    remote_src: true
+    dest: "{{ workspace }}"
+    copy: false
 
 - name: Copy binary
   copy:
-    src: "{{ temp.path }}/{{ haskell_stack_name }}/stack"
+    src: "{{ workspace }}/{{ haskell_stack_name }}/stack"
     dest: "{{ haskell_stack_bin_dir }}"
     mode: 0755
     remote_src: true
-
-- name: Remove temp directory
-  file:
-    path: "{{ temp.path }}"
-    state: absent
+  when: haskell_stack_copy_bin | bool
