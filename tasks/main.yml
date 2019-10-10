@@ -1,5 +1,5 @@
 ---
-- name: Update APT cache
+- name: Update cache
   apt:
     update_cache: true
     cache_valid_time: 86400
@@ -9,15 +9,27 @@
     name: "{{ haskell_stack_dependencies }}"
     state: present
 
-- name: Download and extract stack
+- name: Download stack
+  get_url:
+    url: "https://github.com/commercialhaskell/stack/releases/download/v{{ haskell_stack_version }}/{{ haskell_stack_name }}.tar.gz"
+    dest: "{{ workspace }}/stack-{{ haskell_stack_version }}.tar.gz"
+
+- name: Create directory
+  file:
+    path: "{{ workspace }}/stack-{{ haskell_stack_version }}"
+    state: directory
+
+- name: Extract stack
   unarchive:
-    src: "https://github.com/commercialhaskell/stack/releases/download/v{{ haskell_stack_version }}/{{ haskell_stack_name }}.tar.gz"
-    dest: "{{ workspace }}"
-    copy: false
+    src: "{{ workspace }}/stack-{{ haskell_stack_version }}.tar.gz"
+    dest: "{{ workspace }}/stack-{{ haskell_stack_version }}"
+    remote_src: true
+    extra_opts:
+      - --strip-components=1
 
 - name: Copy binary
   copy:
-    src: "{{ workspace }}/{{ haskell_stack_name }}/stack"
+    src: "{{ workspace }}/stack-{{ haskell_stack_version }}/stack"
     dest: "{{ haskell_stack_bin_dir }}"
     mode: 0755
     remote_src: true
