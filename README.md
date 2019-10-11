@@ -1,39 +1,27 @@
 # Ansible Role: Haskell Stack
 
-Install Haskell Stack on Debian/Ubuntu servers.
+Installs Haskell Stack on Debian/Ubuntu.
 
-## Getting Started
+## Requirements
 
-Add the role to your `requirements.yml` file:
-
-```yaml
-- src: https://github.com/stackbuilders/ansible-haskell-stack
-  name: haskell-stack
-```
-
-Install the dependencies:
-
-```
-$ ansible-galaxy install -r requirements.yml
-```
-
-Add the role to your playbook:
-
-```yaml
-- hosts: all
-  roles:
-    - role: haskell-stack
-      become: true
-```
+None.
 
 ## Role Variables
 
 This section list all variables that could be overwritten, along with their
 [default values](defaults/main.yml):
 
+### haskell_stack_version
+
+The Stack version to be installed.
+
+```yaml
+haskell_stack_version: 1.9.1
+```
+
 ### haskell_stack_dependencies
 
-Extra dependencies required by stack binary:
+Extra dependencies required by Stack.
 
 ```yaml
 haskell_stack_dependencies:
@@ -49,22 +37,30 @@ haskell_stack_dependencies:
   - zlib1g-dev
 ```
 
-### haskell_stack_version
-
-The stack version to be downloaded:
-
-```yaml
-haskell_stack_version: 1.9.1
-```
-
 ### haskell_stack_bin_dir
 
-The target directory to copy stack binary:
+Directory where Stack is going to be installed.
 
 ```yaml
 haskell_stack_bin_dir: /usr/local/bin
 ```
 
+## Dependencies
+
+None.
+
+## Example Playbook
+
+```yaml
+- host: servers
+  roles:
+    - stackbuilders.haskell-stack
+```
+
 ## License
 
 Released under the [MIT License](LICENSE).
+
+## Author Information
+
+This role was created by Stack Builders.

@@ -1,8 +1,8 @@
 ---
 galaxy_info:
   author: Sebastián Estrella
-  description: Haskell Stack
-  company: Stack Builders Inc.
+  description: Installs Haskell Stack on Debian/Ubuntu
+  company: Stack Builders
   license: MIT
   min_ansible_version: 2.7
   platforms:
