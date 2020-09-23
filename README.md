@@ -1,6 +1,6 @@
 # Ansible Role: Haskell Stack
 
-Installs Haskell Stack on Debian/Ubuntu.
+Installs Haskell Stack on Linux.
 
 ## Requirements
 
@@ -11,39 +11,17 @@ None.
 This section list all variables that could be overwritten, along with their
 [default values](defaults/main.yml):
 
-### haskell_stack_version
+```yaml
+stack_version: 2.3.3
+```
 
 The Stack version to be installed.
 
 ```yaml
-haskell_stack_version: 1.9.1
+stack_install_dir: /usr/local/bin
 ```
 
-### haskell_stack_dependencies
-
-Extra dependencies required by Stack.
-
-```yaml
-haskell_stack_dependencies:
-  - g++
-  - gcc
-  - git
-  - gnupg
-  - libc6-dev
-  - libffi-dev
-  - libgmp-dev
-  - make
-  - xz-utils
-  - zlib1g-dev
-```
-
-### haskell_stack_bin_dir
-
-Directory where Stack is going to be installed.
-
-```yaml
-haskell_stack_bin_dir: /usr/local/bin
-```
+Directory where Stack is going to be copied.
 
 ## Dependencies
 
@@ -54,7 +32,7 @@ None.
 ```yaml
 - host: servers
   roles:
-    - stackbuilders.haskell-stack
+    - stackbuilders.stack
 ```
 
 ## License
