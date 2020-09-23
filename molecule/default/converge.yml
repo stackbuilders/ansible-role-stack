@@ -2,4 +2,5 @@
 - name: Converge
   hosts: all
   roles:
-    - ansible-role-haskell-stack
+    - role: ansible-role-haskell-stack
+      become: true

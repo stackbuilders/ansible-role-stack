@@ -9,23 +9,25 @@
 - name: Download stack
   get_url:
     url: "{{ stack_download_url }}"
-    dest: "{{ workspace }}/stack-{{ haskell_stack_version }}.tar.gz"
+    dest: "{{ workspace }}/stack-{{ stack_version }}.tar.gz"
 
 - name: Create directory
   file:
-    path: "{{ workspace }}/stack-{{ haskell_stack_version }}"
+    path: "{{ workspace }}/stack-{{ stack_version }}"
     state: directory
 
 - name: Extract stack
   unarchive:
-    src: "{{ workspace }}/stack-{{ haskell_stack_version }}.tar.gz"
-    dest: "{{ workspace }}/stack-{{ haskell_stack_version }}/"
+    src: "{{ workspace }}/stack-{{ stack_version }}.tar.gz"
+    dest: "{{ workspace }}/stack-{{ stack_version }}/"
     mode: 0755
     remote_src: true
+    extra_opts:
+      - --strip-components=1
 
 - name: Copy binary
   copy:
-    src: "{{ workspace }}/stack-{{ haskell_stack_version }}/stack"
+    src: "{{ workspace }}/stack-{{ stack_version }}/stack"
     dest: "{{ stack_install_dir }}/stack"
     mode: 0755
     remote_src: true
