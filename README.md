@@ -1,6 +1,7 @@
-# Ansible Role: Haskell Stack
+# Ansible Role: Stack
 
-Installs Haskell Stack on Linux.
+Installs [Haskell Stack](https://docs.haskellstack.org/en/stable/README/) on
+Linux.
 
 ## Requirements
 
