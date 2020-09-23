@@ -1,5 +1,7 @@
 # Ansible Role: Stack
 
+![CI](https://github.com/stackbuilders/ansible-role-stack/workflows/CI/badge.svg)
+
 Installs [Haskell Stack](https://docs.haskellstack.org/en/stable/README/) on
 Linux.
 
