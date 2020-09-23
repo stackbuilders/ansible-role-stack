@@ -1,2 +1,1 @@
-.tox/
-__pycache__/
+.venv/
