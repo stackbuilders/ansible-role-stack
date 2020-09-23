@@ -12,6 +12,13 @@ None.
 This section list all variables that could be overwritten, along with their
 [default values](defaults/main.yml):
 
+```yml
+workspace: "{{ ansible_user_dir }}"
+```
+
+The location where temporary files will be downloaded in preparation for Cabal
+installation.
+
 ```yaml
 stack_version: 2.3.3
 ```
