@@ -1,19 +1,4 @@
 ---
 workspace: /root
-
-haskell_stack_version: 2.1.3
-
-haskell_stack_dependencies:
-  - g++
-  - gcc
-  - git
-  - gnupg
-  - libc6-dev
-  - libffi-dev
-  - libgmp-dev
-  - make
-  - xz-utils
-  - zlib1g-dev
-
-haskell_stack_copy_bin: true
-haskell_stack_bin_dir: /usr/local/bin
+stack_version: 2.3.3
+stack_bin_dir: /usr/local/bin

@@ -1,2 +1,2 @@
 ---
-haskell_stack_name: "stack-{{ haskell_stack_version }}-linux-{{ ansible_architecture }}-static"
+__stack_base_url: "https://github.com/commercialhaskell/stack/releases/download/v{{ stack_version }}"

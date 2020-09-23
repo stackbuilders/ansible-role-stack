@@ -1,17 +1,14 @@
 ---
-- name: Update cache
-  apt:
-    update_cache: true
-    cache_valid_time: 86400
-
-- name: Install dependencies
-  apt:
-    name: "{{ haskell_stack_dependencies }}"
-    state: present
+- name: Define stack_download_url (Linux)
+  set_fact:
+    stack_download_url: "{{ __stack_base_url }}/stack-{{ stack_version }}-linux-{{ ansible_architecture }}.tar.gz"
+  when:
+    - ansible_system == 'Linux'
+    - stack_download_url is not defined
 
 - name: Download stack
   get_url:
-    url: "https://github.com/commercialhaskell/stack/releases/download/v{{ haskell_stack_version }}/{{ haskell_stack_name }}.tar.gz"
+    url: "{{ stack_download_url }}"
     dest: "{{ workspace }}/stack-{{ haskell_stack_version }}.tar.gz"
 
 - name: Create directory
@@ -22,15 +19,13 @@
 - name: Extract stack
   unarchive:
     src: "{{ workspace }}/stack-{{ haskell_stack_version }}.tar.gz"
-    dest: "{{ workspace }}/stack-{{ haskell_stack_version }}"
+    dest: "{{ workspace }}/stack-{{ haskell_stack_version }}/"
+    mode: 0755
     remote_src: true
-    extra_opts:
-      - --strip-components=1
 
 - name: Copy binary
   copy:
     src: "{{ workspace }}/stack-{{ haskell_stack_version }}/stack"
-    dest: "{{ haskell_stack_bin_dir }}"
+    dest: "{{ stack_install_dir }}/stack"
     mode: 0755
     remote_src: true
-  when: haskell_stack_copy_bin | bool
