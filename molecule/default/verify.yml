@@ -1,0 +1,10 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Get version # noqa 301
+      command: /usr/local/bin/stack --version
+      register: result
+    - name: Check version
+      assert:
+        that: "'2.3.3' in result.stdout"

@@ -5,24 +5,12 @@ dependency:
 driver:
   name: docker
 
-lint:
-  name: yamllint
-
 platforms:
-  - name: debian9
-    image: debian:9
-  - name: debian10
+  - name: instance
     image: debian:10
 
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
-
-scenario:
-  name: default
 
 verifier:
-  name: testinfra
-  lint:
-    name: flake8
+  name: ansible
